@@ -168,6 +168,7 @@
       <div class="big">🎉</div>
       <p style="font-size:17px;font-weight:700;margin-bottom:6px">你已走完当前队列</p>
       <p class="desc">队列里的邀请码已经全部展示完毕。感谢你的参与——你也可以在下方提交自己的邀请码，帮助后面的人。</p>
+      <div class="btn-row"><button class="btn-ghost" id="btnReset2">↺ 重新开始</button></div>
     </div>
   </section>
 
@@ -362,12 +363,15 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  $("btnReset").addEventListener("click", function(){
+  function resetProgress(){
     state.idx = 0;
     saveState();
     render();
     toast("进度已重置");
-  });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  $("btnReset").addEventListener("click", resetProgress);
+  $("btnReset2").addEventListener("click", resetProgress);
 
   $("btnSubmit").addEventListener("click", submitCode);
   $("inputCode").addEventListener("keydown", function(e){ if(e.key === "Enter") submitCode(); });
