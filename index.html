@@ -151,7 +151,6 @@
       <div class="code-zone">
         <div class="queue-pos" id="queuePos"></div>
         <div class="code-box" id="codeBox">------</div>
-        <div><span class="owner-tag" id="ownerTag" style="display:none">站长置顶 · 队列第 1 位</span></div>
       </div>
       <div class="btn-row">
         <button class="btn-primary" id="btnCopy">📋 复制邀请码</button>
@@ -278,7 +277,6 @@
       var code = INVITE_CODES[idx];
       $("codeBox").textContent = code;
       $("queuePos").textContent = "队列第 " + (idx+1) + " / " + total + " 位";
-      $("ownerTag").style.display = (idx === 0) ? "inline-block" : "none";
     }
     $("statTotal").textContent = total;
     $("statUsed").textContent = Math.min(idx, total);
@@ -293,7 +291,6 @@
       html += '<div class="pool-item">'
         + '<div class="idx">' + (i+1) + '</div>'
         + '<div class="code">' + shown + '</div>'
-        + (i === 0 ? '<span class="pin-tag">站长置顶</span>' : '')
         + '<span class="status ' + cls + '">' + st + '</span>'
         + '</div>';
     }
